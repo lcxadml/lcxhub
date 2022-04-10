@@ -15,7 +15,7 @@ class GoodsService {
     };
     async detailService (id) {
         const statment = `SELECT 
-        g.id id, g.price, g.des, g.CreateAt createTime, g.updateAt updateTime,
+        g.id id, g.price, g.des, g.CreateAt createTime, g.updateAt updateTime, g.name name, g.count count
         JSON_OBJECT('id',u.id, 'name', u.name) user,
         (select json_arrayagg(CONCAT('http://120.25.250.241:8888/goods/images/', file.filename)) from file where g.id = file.goods_id) images
          from goods g 
