@@ -21,6 +21,11 @@ class FileService {
         const [result] = await connection.execute(statement, [fileName]);
         return result[0];
     }
+    async getList() {
+        const statement = `select * from users`;
+        const [result] = await connection.execute(statement);
+        return result;
+    }
 }
 
 module.exports = new FileService(); 

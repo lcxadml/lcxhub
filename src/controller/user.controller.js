@@ -15,6 +15,11 @@ class UserController {
         // 提供图像信息
         ctx.body = fs.createReadStream(`${AVATAR_PATH}/${result.filename}`);
     }
+    
+    async getList(ctx, next) {
+        const result = await fileService.getList();
+        ctx.body = result;
+    }
 }
 
 module.exports = new UserController();
